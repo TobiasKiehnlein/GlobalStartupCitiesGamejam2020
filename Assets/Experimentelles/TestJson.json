@@ -1,0 +1,16 @@
+{
+  "tooltipTexts": [
+    {
+      "header": "Button1",
+      "content": "Ein besonderer knopf"
+    },
+    {
+      "header": null,
+      "content": "hier steht nichts"
+    },
+    {
+      "header": "Test",
+      "content": "nulleeennn gannnnnzzzzzz viiieeeell Textttttt"
+    }
+  ]
+}
