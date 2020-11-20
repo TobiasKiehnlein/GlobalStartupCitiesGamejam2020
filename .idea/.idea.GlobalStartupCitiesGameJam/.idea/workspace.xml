@@ -1,13 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c3a7573-a9e5-47ff-8c82-2a0ecc4c5d84" name="Default Changelist" comment="" />
+    <list default="true" id="4c3a7573-a9e5-47ff-8c82-2a0ecc4c5d84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Platzhalter_Hexagon_weiß.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Platzhalter_Hexagon_weiß.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Platzhalter/2.0Platzhalter_Hexagon_weiß.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Platzhalter/2.0Platzhalter_Hexagon_weiß.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Platzhalter/Platzhalter_Hexagon_weiß.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Platzhalter/Platzhalter_Hexagon_weiß.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 1.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 1.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 2.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 2.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 3.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 3.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tile.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1k9l9riOpYXnT4gXV79iItwoLep" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,6 +99,8 @@
       <option name="presentableId" value="Default" />
       <updated>1605120542422</updated>
       <workItem from="1605120552910" duration="214000" />
+      <workItem from="1605726551098" duration="659000" />
+      <workItem from="1605893679656" duration="6489000" />
     </task>
     <servers />
   </component>
@@ -55,6 +109,17 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
