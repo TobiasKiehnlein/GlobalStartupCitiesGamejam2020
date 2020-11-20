@@ -9,6 +9,7 @@
           <e p="MapGenerator.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="Tile.cs" t="Include" />
+          <e p="TileSettings.cs" t="Include" />
         </e>
       </e>
       <e p="GlobalStartupCitiesGameJam.sln" t="IncludeFlat" />

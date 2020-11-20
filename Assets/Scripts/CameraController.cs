@@ -44,6 +44,7 @@ public class CameraController : MonoBehaviour
             transform.Translate(-movementSpeed / 10, 0, 0);
         }
 
-        transform.position = Vector3.ClampMagnitude(transform.position, _size);
+        Vector2 cameraPosition = Vector2.ClampMagnitude(new Vector2(transform.position.x, transform.position.y), _size / 2.5f);
+        transform.position = new Vector3(cameraPosition.x, cameraPosition.y, transform.position.z);
     }
 }

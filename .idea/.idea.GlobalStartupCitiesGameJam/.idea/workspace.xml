@@ -20,23 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c3a7573-a9e5-47ff-8c82-2a0ecc4c5d84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Platzhalter_Hexagon_weiß.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Platzhalter_Hexagon_weiß.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObjects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/DefaultTileSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/DefaultTileSettings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Platzhalter/2.0Platzhalter_Hexagon_weiß.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Platzhalter/2.0Platzhalter_Hexagon_weiß.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Platzhalter/Platzhalter_Hexagon_weiß.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Platzhalter/Platzhalter_Hexagon_weiß.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 1.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 1.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 2.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 2.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 3.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig 3.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Experimentelles/Rigs/Char1_Front_Rig.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tile 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tile 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tile 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tile 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tile 3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tile 3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +45,15 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/TileSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
@@ -80,10 +82,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="2177">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="2177" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -100,7 +102,7 @@
       <updated>1605120542422</updated>
       <workItem from="1605120552910" duration="214000" />
       <workItem from="1605726551098" duration="659000" />
-      <workItem from="1605893679656" duration="6489000" />
+      <workItem from="1605893679656" duration="13705000" />
     </task>
     <servers />
   </component>
@@ -122,5 +124,43 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2023" y="181" key="#xdebugger.evaluate" timestamp="1605912173439">
+      <screen x="1920" y="25" width="1680" height="1025" />
+    </state>
+    <state x="2023" y="181" key="#xdebugger.evaluate/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@1920.25.1680.1025" timestamp="1605912173439" />
+    <state width="1878" height="347" key="GridCell.Tab.0.bottom" timestamp="1605911895342">
+      <screen x="0" y="25" width="1920" height="985" />
+    </state>
+    <state width="1878" height="347" key="GridCell.Tab.0.bottom/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@0.25.1920.985" timestamp="1605911895342" />
+    <state width="1878" height="347" key="GridCell.Tab.0.center" timestamp="1605911895340">
+      <screen x="0" y="25" width="1920" height="985" />
+    </state>
+    <state width="1878" height="347" key="GridCell.Tab.0.center/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@0.25.1920.985" timestamp="1605911895340" />
+    <state width="1878" height="347" key="GridCell.Tab.0.left" timestamp="1605911895340">
+      <screen x="0" y="25" width="1920" height="985" />
+    </state>
+    <state width="1878" height="347" key="GridCell.Tab.0.left/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@0.25.1920.985" timestamp="1605911895340" />
+    <state width="1878" height="347" key="GridCell.Tab.0.right" timestamp="1605911895341">
+      <screen x="0" y="25" width="1920" height="985" />
+    </state>
+    <state width="1878" height="347" key="GridCell.Tab.0.right/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@0.25.1920.985" timestamp="1605911895341" />
+    <state width="1638" height="347" key="GridCell.Tab.1.bottom" timestamp="1605912026460">
+      <screen x="1920" y="25" width="1680" height="1025" />
+    </state>
+    <state width="1638" height="347" key="GridCell.Tab.1.bottom/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@1920.25.1680.1025" timestamp="1605912026460" />
+    <state width="1638" height="347" key="GridCell.Tab.1.center" timestamp="1605912026460">
+      <screen x="1920" y="25" width="1680" height="1025" />
+    </state>
+    <state width="1638" height="347" key="GridCell.Tab.1.center/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@1920.25.1680.1025" timestamp="1605912026460" />
+    <state width="1638" height="347" key="GridCell.Tab.1.left" timestamp="1605912026459">
+      <screen x="1920" y="25" width="1680" height="1025" />
+    </state>
+    <state width="1638" height="347" key="GridCell.Tab.1.left/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@1920.25.1680.1025" timestamp="1605912026459" />
+    <state width="1638" height="347" key="GridCell.Tab.1.right" timestamp="1605912026460">
+      <screen x="1920" y="25" width="1680" height="1025" />
+    </state>
+    <state width="1638" height="347" key="GridCell.Tab.1.right/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@1920.25.1680.1025" timestamp="1605912026460" />
   </component>
 </project>

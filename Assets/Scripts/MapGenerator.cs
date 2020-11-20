@@ -9,21 +9,21 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private int seed = 10;
     [SerializeField] private int size = 21;
     [SerializeField] private List<TileConfig> tiles = new List<TileConfig>();
+    [SerializeField] private TileSettings tileSettings;
 
+    public Tile CurrentlyDraggedTile { get; set; }
+
+    private LineRenderer _lineRenderer;
     private List<Tile> _tiles = new List<Tile>();
 
     void Start()
     {
+        _lineRenderer = GetComponent<LineRenderer>();
         Random.InitState(seed);
-        for (int i = 0; i < size; i++)
+        for (int i = -size / 2 + 1; i < size / 2; i++)
         {
-            CreateRow(i - size / 2);
+            CreateRow(i);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     void CreateRow(int offset)
@@ -35,13 +35,15 @@ public class MapGenerator : MonoBehaviour
             var go = GetRandomTile();
             go.transform.position = new Vector2(i + horizontalOffset - Math.Abs(offset) % 2, offset * 0.89f);
             var instance = Instantiate(go, transform);
-            _tiles.Add(new Tile
-            {
-                GO = instance,
-                Visible = false,
-                X = i,
-                Y = offset
-            });
+
+            instance.name = $"X:{i} - Y:{offset}";
+
+            var tile = instance.AddComponent<Tile>();
+            tile.X = i;
+            tile.Y = offset;
+            tile.tileSettings = tileSettings;
+            tile.lineRenderer = _lineRenderer;
+            tile.mapGenerator = this;
         }
     }
 
@@ -61,6 +63,35 @@ public class MapGenerator : MonoBehaviour
     public int GetSize()
     {
         return size;
+    }
+
+    public bool IsSwapAllowed(Tile dest)
+    {
+        Debug.Log(dest);
+        Debug.Log(CurrentlyDraggedTile);
+        if (CurrentlyDraggedTile == null) return false;
+        // if (dest.Flipped == CurrentlyDraggedTile.Flipped) return false; // Not allowed if both are flipped or both aren't
+        if (!NextToEachOther(dest, CurrentlyDraggedTile)) return false; // Only Tiles next to each other can be swapped
+        return true;
+    }
+
+    public bool NextToEachOther(Tile dest, Tile curr)
+    {
+        if (dest.Y == curr.Y)
+        {
+            return Math.Abs(dest.X - curr.X) == 1;
+        }
+
+        if (Math.Abs(dest.Y - curr.Y) == 1)
+        {
+            if (Math.Abs(dest.X - curr.X) == 0) return true;
+            if (Math.Abs(dest.X - curr.X) == 1)
+            {
+                return dest.X > curr.X;
+            }
+        }
+
+        return false;
     }
 }
 
