@@ -1,28 +1,58 @@
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
     public int X;
     public int Y;
     public bool Visible;
-    public bool Flipped;
+    public Vector3 DestinationPosition = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+    public bool test = true;
+    private bool _flipped;
+    private float _animationSpeed = 10;
+
+    public bool Flipped
+    {
+        get => _flipped;
+        set
+        {
+            _flipped = value;
+            if (_animator != null && Flipped)
+            {
+                _animator.SetBool("IsFlipped", value);
+            }
+        }
+    }
+
     public TileSettings tileSettings;
     public LineRenderer lineRenderer;
     public MapGenerator mapGenerator;
+    public Guid ID;
 
-    private SpriteRenderer _spriteRenderer;
+    private SpriteRenderer[] _spriteRenderer;
     private Color _color;
     private Camera _camera;
     private bool _dragging;
+    private Animator _animator;
 
     private void Start()
     {
+        ID = Guid.NewGuid();
+        _animator = GetComponent<Animator>();
         Visible = false;
-        Flipped = false;
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        Flipped = X == 0 && Y == 0;
+        _spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
         _camera = Camera.main;
+    }
+
+    private void Update()
+    {
+        if (DestinationPosition.x != float.MaxValue)
+        {
+            transform.position = Vector3.Lerp(transform.position, DestinationPosition, Time.deltaTime * _animationSpeed);
+            // transform.position = DestinationPosition;
+            // DestinationPosition = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+        }
     }
 
     public void OnMouseDrag()
@@ -47,11 +77,14 @@ public class Tile : MonoBehaviour
         if (lineRenderer == null || !_dragging) return;
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, transform.position);
     }
 
     private void OnMouseUp()
     {
         _dragging = false;
+        mapGenerator.SwapTiles();
+        mapGenerator.CurrentlyDraggedTile = null;
         if (lineRenderer != null)
         {
             lineRenderer.positionCount = 0;
@@ -60,25 +93,31 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        // TODO detect if I'm allowed
-        if (mapGenerator.IsSwapAllowed(this) && _spriteRenderer != null)
+        mapGenerator.CurrentlyHoveredTile = this;
+        if (_spriteRenderer.Length < 1) return;
+
+        if (mapGenerator.IsSwapAllowed(this))
         {
-            Debug.Log("ALLOWED");
-            _color = _spriteRenderer.color;
-            _spriteRenderer.color = Color.yellow;
+            foreach (var spriteRenderer in _spriteRenderer)
+            {
+                spriteRenderer.color = Color.yellow;
+            }
+
             return;
         }
 
-        Debug.Log("not allowed");
-
-        if (_spriteRenderer == null) return;
-        _color = _spriteRenderer.color;
-        _spriteRenderer.color = new Color(_color.r / tileSettings.darkeningOnHoverAmount, _color.g / tileSettings.darkeningOnHoverAmount, _color.b / tileSettings.darkeningOnHoverAmount);
+        foreach (var spriteRenderer in _spriteRenderer)
+        {
+            spriteRenderer.color = new Color(_color.r / tileSettings.darkeningOnHoverAmount, _color.g / tileSettings.darkeningOnHoverAmount, _color.b / tileSettings.darkeningOnHoverAmount);
+        }
     }
 
     private void OnMouseExit()
     {
-        if (_spriteRenderer == null) return;
-        _spriteRenderer.color = _color;
+        if (_spriteRenderer.Length < 1) return;
+        foreach (var spriteRenderer in _spriteRenderer)
+        {
+            spriteRenderer.color = Color.white;
+        }
     }
 }
