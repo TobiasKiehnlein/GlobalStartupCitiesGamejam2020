@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - BeautifulMountain
+  - Mountain_Dark
+  - Mountain_Civil
+  - Mountain_Nature
+  - Forest_dark
+  - Forest_light
+  - Ruins
+  - Village
+  - Grassland
+  - Savannah
+  - Meadow
   layers:
   - Default
   - TransparentFX
