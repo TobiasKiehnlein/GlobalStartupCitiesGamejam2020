@@ -66,10 +66,10 @@ public class MapGenerator : MonoBehaviour
         foreach (var t in tiles)
         {
             i -= t.probability;
-            if (i < 0) return t.go;
+            if (i < 0) return t.Prefabs[Random.Range(0, t.Prefabs.Count)];
         }
 
-        return tiles[0].go;
+        return tiles[0].Prefabs[Random.Range(0, tiles[0].Prefabs.Count)];
     }
 
     private Vector2 CoordsToWorldPosition(int x, int y)
@@ -157,6 +157,7 @@ public class MapGenerator : MonoBehaviour
 [Serializable]
 public class TileConfig
 {
-    public GameObject go;
+    public List<GameObject> Prefabs;
+    public Role Role;
     public int probability;
 }

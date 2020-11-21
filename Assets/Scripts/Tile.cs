@@ -146,5 +146,6 @@ public enum Role
 {
     None,
     RuinedVillages,
+    Mountain,
     Border
 }
