@@ -15,13 +15,13 @@ public class MapGenerator : MonoBehaviour
     public Tile CurrentlyHoveredTile { get; set; }
 
     private LineRenderer _lineRenderer;
-    private List<Tile> _tiles = new List<Tile>();
+    public List<Tile> Tiles = new List<Tile>();
 
     void Start()
     {
         _lineRenderer = GetComponent<LineRenderer>();
         Random.InitState(seed);
-        for (int i = -size / 2 + 1; i < size / 2; i++)
+        for (int i = -size / 2; i < size / 2 + 1; i++)
         {
             CreateRow(i);
         }
@@ -39,6 +39,7 @@ public class MapGenerator : MonoBehaviour
             instance.name = $"X:{i} - Y:{offset}";
 
             var tile = instance.AddComponent<Tile>();
+            Tiles.Add(tile);
             tile.X = i;
             tile.Y = offset;
             tile.tileSettings = tileSettings;
@@ -62,7 +63,7 @@ public class MapGenerator : MonoBehaviour
 
     private Vector2 CoordsToWorldPosition(int x, int y)
     {
-        var horizontalOffset = Math.Abs(y) % 2 == 1 ? 0.5f : 0;
+        var horizontalOffset = Math.Abs(y) % 2 == 1 ? 1.5f : 0;
         return new Vector3(x + horizontalOffset - Math.Abs(y) % 2, y * 0.89f, 0);
     }
 
@@ -116,11 +117,21 @@ public class MapGenerator : MonoBehaviour
             CurrentlyDraggedTile.DestinationPosition = CoordsToWorldPosition(CurrentlyDraggedTile.X, CurrentlyDraggedTile.Y);
             CurrentlyHoveredTile.Flipped = true;
             CurrentlyDraggedTile.Flipped = true;
+            MakeVisibleAroundTile(CurrentlyDraggedTile);
+            MakeVisibleAroundTile(CurrentlyHoveredTile);
         }
         else
         {
             // TODO Display Error message to user
             Debug.LogWarning("These Two cannot be swapped");
+        }
+    }
+
+    private void MakeVisibleAroundTile(Tile tile, float amount = 2.2f)
+    {
+        foreach (var t in Tiles.Where(x => (x.gameObject.transform.position - tile.transform.position).magnitude < amount))
+        {
+            t.Visible = true;
         }
     }
 }

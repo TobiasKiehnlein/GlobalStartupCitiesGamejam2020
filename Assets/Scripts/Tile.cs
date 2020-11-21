@@ -1,15 +1,16 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
     public int X;
     public int Y;
-    public bool Visible;
     public Vector3 DestinationPosition = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
-    public bool test = true;
     private bool _flipped;
+    private bool _visible;
     private float _animationSpeed = 10;
+    private SpriteMask _mask;
 
     public bool Flipped
     {
@@ -20,6 +21,19 @@ public class Tile : MonoBehaviour
             if (_animator != null && Flipped)
             {
                 _animator.SetBool("IsFlipped", value);
+            }
+        }
+    }
+
+    public bool Visible
+    {
+        get => _visible;
+        set
+        {
+            _visible = value;
+            if (_mask != null)
+            {
+                _mask.enabled = !value;
             }
         }
     }
@@ -37,12 +51,13 @@ public class Tile : MonoBehaviour
 
     private void Start()
     {
-        ID = Guid.NewGuid();
-        _animator = GetComponent<Animator>();
-        Visible = false;
-        Flipped = X == 0 && Y == 0;
-        _spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
+        _mask = GetComponent<SpriteMask>();
         _camera = Camera.main;
+        _spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+        ID = Guid.NewGuid();
+        Visible = (mapGenerator.Tiles.First(x => x.X == 0 && x.Y == 0).gameObject.transform.position - transform.position).magnitude < 2.2f;
+        Flipped = X == 0 && Y == 0;
     }
 
     private void Update()
