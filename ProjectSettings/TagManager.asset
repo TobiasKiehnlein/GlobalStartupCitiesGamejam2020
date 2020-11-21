@@ -15,6 +15,9 @@ TagManager:
   - Grassland
   - Savannah
   - Meadow
+  - earth_dark
+  - farmland
+  - flowers
   layers:
   - Default
   - TransparentFX
