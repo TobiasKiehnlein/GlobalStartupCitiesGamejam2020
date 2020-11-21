@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class MapGenerator : MonoBehaviour
 {
     [SerializeField] private int seed = 10;
+    [SerializeField] private GameObject borderTile;
     [SerializeField] private List<TileConfig> tiles = new List<TileConfig>();
     [SerializeField] private TileSettings tileSettings;
     [SerializeField] private GameSettings gameSettings;
@@ -20,21 +21,24 @@ public class MapGenerator : MonoBehaviour
 
     void Start()
     {
-        _size = gameSettings.mapRadius * 2 + 1;
+        _size = gameSettings.mapRadius * 2 + 3;
         _lineRenderer = GetComponent<LineRenderer>();
         Random.InitState(seed);
         for (int i = -_size / 2; i < _size / 2 + 1; i++)
         {
-            CreateRow(i);
+            CreateRow(i, i == -_size / 2 || i == _size / 2);
         }
     }
 
-    void CreateRow(int offset)
+    void CreateRow(int offset, bool onlyBorders = false)
     {
         var currentWidth = Math.Max(3, _size - Math.Abs(offset));
-        for (int i = -currentWidth / 2; i < Math.Ceiling((float) currentWidth / 2); i++)
+        var lower = -currentWidth / 2;
+        var upper = Math.Ceiling((float) currentWidth / 2);
+        for (int i = lower; i < upper; i++)
         {
-            var go = GetRandomTile();
+            var isBorder = onlyBorders || i == lower || i == (int) (upper - 1);
+            var go = isBorder ? borderTile : GetRandomTile();
             go.transform.position = CoordsToWorldPosition(i, offset);
             var instance = Instantiate(go, transform);
 
@@ -47,6 +51,11 @@ public class MapGenerator : MonoBehaviour
             tile.tileSettings = tileSettings;
             tile.lineRenderer = _lineRenderer;
             tile.mapGenerator = this;
+            if (isBorder)
+            {
+                tile.role = Role.Border;
+                tile.Flipped = true;
+            }
         }
     }
 
@@ -77,6 +86,7 @@ public class MapGenerator : MonoBehaviour
     public bool IsSwapAllowed(Tile dest)
     {
         if (CurrentlyDraggedTile == null) return false;
+        if (CurrentlyDraggedTile.role == Role.Border || dest.role == Role.Border) return false; //borders cannot be moved
         if (dest.Flipped == CurrentlyDraggedTile.Flipped) return false; // Not allowed if both are flipped or both aren't
         if (!NextToEachOther(dest, CurrentlyDraggedTile)) return false; // Only Tiles next to each other can be swapped
         return true;

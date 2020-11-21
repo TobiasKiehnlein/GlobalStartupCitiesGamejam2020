@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14c7105134b543ebbef9fabea5b6011, type: 3}
   m_Name: DefaultTileSettings
   m_EditorClassIdentifier: 
-  darkeningOnHoverAmount: 3
+  darkeningOnHoverAmount: 1.5

@@ -479,6 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 10
+  borderTile: {fileID: 494866208563506508, guid: 04a6b00e7e39046ba8cb865816496074, type: 3}
   tiles:
   - go: {fileID: 494866208563506508, guid: 08e9b4a5f104349d3b5a842e552278fa, type: 3}
     probability: 10
