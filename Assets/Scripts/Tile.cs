@@ -42,6 +42,7 @@ public class Tile : MonoBehaviour
     public LineRenderer lineRenderer;
     public MapGenerator mapGenerator;
     public Guid ID;
+    public Role role = Role.None;
 
     private SpriteRenderer[] _spriteRenderer;
     private Color _color;
@@ -72,6 +73,7 @@ public class Tile : MonoBehaviour
 
     public void OnMouseDrag()
     {
+        if (role == Role.Border) return;
         // if (_camera == null) return;
         // var mousePosition = Input.mousePosition;
         // mousePosition.z = 10;
@@ -87,6 +89,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (role == Role.Border) return;
         _dragging = true;
         mapGenerator.CurrentlyDraggedTile = this;
         if (lineRenderer == null || !_dragging) return;
@@ -97,6 +100,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (role == Role.Border) return;
         _dragging = false;
         mapGenerator.SwapTiles();
         mapGenerator.CurrentlyDraggedTile = null;
@@ -108,6 +112,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (role == Role.Border) return;
         mapGenerator.CurrentlyHoveredTile = this;
         if (_spriteRenderer.Length < 1) return;
 
@@ -123,16 +128,23 @@ public class Tile : MonoBehaviour
 
         foreach (var spriteRenderer in _spriteRenderer)
         {
-            spriteRenderer.color = new Color(_color.r / tileSettings.darkeningOnHoverAmount, _color.g / tileSettings.darkeningOnHoverAmount, _color.b / tileSettings.darkeningOnHoverAmount);
+            spriteRenderer.color = new Color(1 / tileSettings.darkeningOnHoverAmount, 1 / tileSettings.darkeningOnHoverAmount, 1 / tileSettings.darkeningOnHoverAmount);
         }
     }
 
     private void OnMouseExit()
     {
-        if (_spriteRenderer.Length < 1) return;
+        if (_spriteRenderer.Length < 1 || role == Role.Border) return;
         foreach (var spriteRenderer in _spriteRenderer)
         {
             spriteRenderer.color = Color.white;
         }
     }
+}
+
+public enum Role
+{
+    None,
+    RuinedVillages,
+    Border
 }
