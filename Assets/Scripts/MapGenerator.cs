@@ -7,21 +7,23 @@ using Random = UnityEngine.Random;
 public class MapGenerator : MonoBehaviour
 {
     [SerializeField] private int seed = 10;
-    [SerializeField] private int size = 21;
     [SerializeField] private List<TileConfig> tiles = new List<TileConfig>();
     [SerializeField] private TileSettings tileSettings;
+    [SerializeField] private GameSettings gameSettings;
 
     public Tile CurrentlyDraggedTile { get; set; }
     public Tile CurrentlyHoveredTile { get; set; }
 
     private LineRenderer _lineRenderer;
     public List<Tile> Tiles = new List<Tile>();
+    private int _size = 21;
 
     void Start()
     {
+        _size = gameSettings.mapRadius * 2 + 1;
         _lineRenderer = GetComponent<LineRenderer>();
         Random.InitState(seed);
-        for (int i = -size / 2; i < size / 2 + 1; i++)
+        for (int i = -_size / 2; i < _size / 2 + 1; i++)
         {
             CreateRow(i);
         }
@@ -29,7 +31,7 @@ public class MapGenerator : MonoBehaviour
 
     void CreateRow(int offset)
     {
-        var currentWidth = Math.Max(3, size - Math.Abs(offset));
+        var currentWidth = Math.Max(3, _size - Math.Abs(offset));
         for (int i = -currentWidth / 2; i < Math.Ceiling((float) currentWidth / 2); i++)
         {
             var go = GetRandomTile();
@@ -69,7 +71,7 @@ public class MapGenerator : MonoBehaviour
 
     public int GetSize()
     {
-        return size;
+        return _size;
     }
 
     public bool IsSwapAllowed(Tile dest)
@@ -133,6 +135,12 @@ public class MapGenerator : MonoBehaviour
         {
             t.Visible = true;
         }
+    }
+
+    private bool IsGameFinished()
+    {
+        if (Tiles.All(x => x.Flipped)) return true;
+        return false;
     }
 }
 

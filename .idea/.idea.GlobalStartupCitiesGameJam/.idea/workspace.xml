@@ -20,14 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c3a7573-a9e5-47ff-8c82-2a0ecc4c5d84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/FogMovement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/FogMovement.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI and FX/Unexplored_Tiles_Texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/UI and FX/Unexplored_Tiles_Texture.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +45,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/TileSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FogMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
       </list>
     </option>
@@ -103,7 +99,7 @@
       <workItem from="1605120552910" duration="214000" />
       <workItem from="1605726551098" duration="659000" />
       <workItem from="1605893679656" duration="14461000" />
-      <workItem from="1605942628029" duration="11578000" />
+      <workItem from="1605942628029" duration="12133000" />
     </task>
     <servers />
   </component>

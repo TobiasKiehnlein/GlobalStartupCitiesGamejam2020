@@ -4,4 +4,5 @@
 public class GameSettings : ScriptableObject
 {
     public bool mouseMovementEnabled = true;
+    public int mapRadius = 5;
 }
