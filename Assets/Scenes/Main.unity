@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 181045900}
   - component: {fileID: 181045899}
   m_Layer: 0
-  m_Name: Unexplored_Tiles_Texture
+  m_Name: Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   width: 2
-  movementSpeed: 1
-  verticalAmount: 0.5
+  movementSpeed: 0.25
+  verticalAmount: 0.1
   musicBpm: 220
 --- !u!212 &181045900
 SpriteRenderer:
@@ -479,11 +479,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 10
-  size: 11
   tiles:
   - go: {fileID: 494866208563506508, guid: 08e9b4a5f104349d3b5a842e552278fa, type: 3}
     probability: 10
   tileSettings: {fileID: 11400000, guid: fa94268cbcee04aa89c6de02436b598d, type: 2}
+  gameSettings: {fileID: 11400000, guid: f63d1fc49aaf34a32a830cd702bb53d8, type: 2}
   Tiles: []
 --- !u!4 &1295960774
 Transform:
