@@ -4,15 +4,18 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="DisplayHighscore.cs" t="Include" />
         <e p="DisplayScore.cs" t="Include" />
-        <e p="Point.cs" t="Include" />
         <e p="Music.cs" t="Include" />
+        <e p="Point.cs" t="Include" />
+        <e p="ScoreMover.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AudioManager.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="FogMovement.cs" t="Include" />
           <e p="GameSettings.cs" t="Include" />
           <e p="MapGenerator.cs" t="Include" />
+          <e p="SceneManager.cs" t="Include" />
           <e p="Score.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="Tile.cs" t="Include" />
@@ -22,6 +25,7 @@
         <e p="Shader" t="Include">
           <e p="BackgroundInvisible.shader" t="Include" />
         </e>
+        <e p="ShowOnGameover.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />

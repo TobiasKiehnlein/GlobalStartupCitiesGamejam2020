@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Score
   m_EditorClassIdentifier: 
   naturePoints: 0
-  civilizedPoints: 0
+  civilizedPoints: 2
+  highscore: 0
+  isGameFinished: 1

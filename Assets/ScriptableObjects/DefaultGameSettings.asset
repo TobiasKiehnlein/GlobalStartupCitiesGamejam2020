@@ -15,3 +15,5 @@ MonoBehaviour:
   mouseMovementEnabled: 0
   mapRadius: 5
   seed: 10
+  muted: 0
+  lang: 3

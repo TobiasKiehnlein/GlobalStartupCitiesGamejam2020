@@ -22,9 +22,23 @@
     <list default="true" id="4c3a7573-a9e5-47ff-8c82-2a0ecc4c5d84" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI and FX/MainMenue/emptyButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/UI and FX/MainMenue/emptyButton.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/GameMusic.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Audio/GameMusic.mixer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DisplayScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DisplayScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Point.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Point.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Forest_test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Forest_test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Ruin_Village_test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Ruin_Village_test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Savannah_Sheepmeadow_test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Savannah_Sheepmeadow_test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Scrachedearth_farmland_test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Scrachedearth_farmland_test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/TheMountain_test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/TheMountain_test.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/DefaultGameSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/DefaultGameSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Score.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Score.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Score.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +51,21 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SelectLanguage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ShowOnGameover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FogMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DisplayHighscore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Music.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScoreMover.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/213E6BF8-F2DD-495F-BD69-3E6CE506136B/7b/1461def5/SendMouseEvents.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FogMovement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -53,14 +76,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/BackgroundInvisible.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tile.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Score.cs" />
-        <option value="$PROJECT_DIR$/Assets/DisplayScore.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Point.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Music.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/SelectLanguage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Score.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScoreMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/ShowOnGameover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/DisplayScore.cs" />
+        <option value="$PROJECT_DIR$/Assets/DisplayHighscore.cs" />
       </list>
     </option>
   </component>
@@ -110,7 +136,7 @@
       <workItem from="1605726551098" duration="659000" />
       <workItem from="1605893679656" duration="14461000" />
       <workItem from="1605942628029" duration="19127000" />
-      <workItem from="1606011255087" duration="19649000" />
+      <workItem from="1606011255087" duration="25634000" />
     </task>
     <servers />
   </component>
@@ -135,15 +161,15 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="343" y="200" width="1329" height="757" key="#xdebugger.evaluate" timestamp="1606040183782">
+    <state x="752" y="105" width="1329" height="757" key="#xdebugger.evaluate" timestamp="1606056313943">
       <screen x="0" y="25" width="1920" height="985" />
     </state>
-    <state x="118" y="175" key="#xdebugger.evaluate/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@0.25.1920.985" timestamp="1606038283471" />
+    <state x="752" y="105" key="#xdebugger.evaluate/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@0.25.1920.985" timestamp="1606056313943" />
     <state x="343" y="200" width="1329" height="757" key="#xdebugger.evaluate/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@1920.25.1680.1025" timestamp="1606040183782" />
-    <state width="438" height="646" key="DebuggerActiveHint" timestamp="1606038127494">
+    <state width="464" height="646" key="DebuggerActiveHint" timestamp="1606056070373">
       <screen x="0" y="25" width="1920" height="985" />
     </state>
-    <state width="438" height="646" key="DebuggerActiveHint/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@0.25.1920.985" timestamp="1606038127494" />
+    <state width="464" height="646" key="DebuggerActiveHint/0.25.1920.985/1920.25.1680.1025/-1792.25.1792.1095@0.25.1920.985" timestamp="1606056070373" />
     <state width="1878" height="347" key="GridCell.Tab.0.bottom" timestamp="1606036099064">
       <screen x="0" y="25" width="1920" height="985" />
     </state>

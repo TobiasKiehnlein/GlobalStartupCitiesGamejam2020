@@ -26,7 +26,10 @@ public class MapGenerator : MonoBehaviour
     {
         score.civilizedPoints = 0;
         score.naturePoints = 0;
+        score.isGameFinished = false;
         seed = gameSettings.seed;
+        //TODO remove later and add seed system
+        seed = Random.Range(0, int.MaxValue);
         _size = gameSettings.mapRadius * 2 + 3;
         _lineRenderer = GetComponent<LineRenderer>();
         Random.InitState(seed);
@@ -162,7 +165,9 @@ public class MapGenerator : MonoBehaviour
             MakeVisibleAroundTile(CurrentlyDraggedTile);
             MakeVisibleAroundTile(CurrentlyHoveredTile);
 
-            CreateCities();
+            // CreateCities();
+
+            HandleGameFinished();
         }
         else
         {
@@ -181,11 +186,36 @@ public class MapGenerator : MonoBehaviour
 
             // there are at least two villages next to the current one
 
-            var possibleCities = GetPowerSet(possibleOtherVillageTiles).Where(x => x.Count() == 3);
+            var possibleCities = GetPowerSet(possibleOtherVillageTiles).Where(x => x.Count() == 3).Select(x => x.OrderBy(city => city.Y));
 
             // Check if shape is like this:
             //  x   or x x
             // x x      x
+            foreach (var possibleCity in possibleCities)
+            {
+                var city = possibleCity.OrderByDescending(x => x.Y).Reverse().ToList();
+                if (city[0].Y == city[1].Y && city[0].Y - 1 == city[2].Y)
+                {
+                    // Possibly x x
+                    //           x
+                    foreach (var tile1 in city)
+                    {
+                        Tiles.Find(x => x.ID == tile1.ID).role = Role.City;
+                    }
+
+                    return;
+                }
+
+                if (city[0].Y - 1 == city[1].Y && city[1].Y == city[2].Y)
+                {
+                    foreach (var tile1 in city)
+                    {
+                        Tiles.Find(x => x.ID == tile1.ID).role = Role.City;
+                    }
+
+                    return;
+                }
+            }
         }
     }
 
@@ -215,9 +245,8 @@ public class MapGenerator : MonoBehaviour
         switch (unflipped.role)
         {
             case Role.DeadForrest:
-                // TODO Finde alle zusammenhängenden Wälder
-                var coherentForestCount = 5;
-                GivePoints(tileSettings.pDeadForrestToLivingForest * coherentForestCount, PointType.Natural);
+                var amount = Tiles.Count(x => x.Flipped && x.role == Role.LivingForrest);
+                GivePoints(tileSettings.pDeadForrestToLivingForest * amount, PointType.Natural);
                 unflipped.role = Role.LivingForrest;
                 break;
             case Role.RuinedVillage:
@@ -334,10 +363,12 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    private bool IsGameFinished()
+    private void HandleGameFinished()
     {
-        if (Tiles.All(x => x.Flipped)) return true;
-        return false;
+        if (!Tiles.All(x => x.Flipped || x.role == Role.Border)) return;
+        score.isGameFinished = true;
+        var s = Math.Min(score.civilizedPoints, score.naturePoints);
+        score.highscore = Math.Max(score.highscore, s);
     }
 }
 

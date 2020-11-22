@@ -31,5 +31,26 @@ public class DisplayScore : MonoBehaviour
         }
 
         _transform.localScale = Vector3.Lerp(_transform.localScale, Vector3.one, Time.deltaTime * shrinkingSpeed);
+
+        if (Score.isGameFinished)
+        {
+            if (IsNatureScore && Score.naturePoints > Score.civilizedPoints)
+            {
+                _text.fontStyle |= FontStyles.Strikethrough;
+            }
+            else if (!IsNatureScore && Score.naturePoints < Score.civilizedPoints)
+            {
+                _text.fontStyle |= FontStyles.Strikethrough;
+            }
+
+            if (IsNatureScore && Score.naturePoints < Score.civilizedPoints)
+            {
+                _text.fontStyle |= FontStyles.Bold;
+            }
+            else if (!IsNatureScore && Score.naturePoints > Score.civilizedPoints)
+            {
+                _text.fontStyle |= FontStyles.Bold;
+            }
+        }
     }
 }
