@@ -15,7 +15,7 @@ public class Point : MonoBehaviour
 
     private void Start()
     {
-        _dest = new Vector3(-1 * (isNature ? 1 : -2), 5, 0);
+        _dest = new Vector3(-1 * (isNature ? 2 : -2), 5, 0);
         _transform = GetComponent<RectTransform>();
         _transform.localScale = new Vector3(.2f, .2f, .2f);
         text = GetComponentInChildren<TMP_Text>();
