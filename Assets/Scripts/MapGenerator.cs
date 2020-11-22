@@ -245,7 +245,7 @@ public class MapGenerator : MonoBehaviour
         switch (unflipped.role)
         {
             case Role.DeadForrest:
-                var amount = Tiles.Count(x => x.Flipped && x.role == Role.LivingForrest && (x.transform.position - flipped.gameObject.transform.position).magnitude < 2);
+                var amount = Tiles.Count(x => x.Flipped && x.role == Role.LivingForrest && (x.transform.position - unflipped.gameObject.transform.position).magnitude < 2);
                 GivePoints(tileSettings.pDeadForrestToLivingForest * amount, PointType.Natural);
                 unflipped.role = Role.LivingForrest;
                 break;
@@ -254,7 +254,7 @@ public class MapGenerator : MonoBehaviour
                 {
                     // Ruined Village gets village if there is at least one civilized Tile up to three tiles away
                     unflipped.ActivateByTag("Village");
-                    var flippedAround = Tiles.Count(x => x.Flipped && (x.transform.position - flipped.gameObject.transform.position).magnitude < 2);
+                    var flippedAround = Tiles.Count(x => x.Flipped && (x.transform.position - unflipped.gameObject.transform.position).magnitude < 2);
                     GivePoints(tileSettings.pRuinedVillageToVillage * flippedAround, PointType.Civilized);
                     unflipped.role = Role.Village;
                 }
@@ -268,7 +268,7 @@ public class MapGenerator : MonoBehaviour
 
                 break;
             case Role.CrackedSavanna:
-                var villageAmountNextElt = Tiles.Count(x => x.Flipped && x.role == Role.Village && (x.gameObject.transform.position - flipped.transform.position).magnitude < 2);
+                var villageAmountNextElt = Tiles.Count(x => x.Flipped && x.role == Role.Village && (x.gameObject.transform.position - unflipped.transform.position).magnitude < 2);
                 if (villageAmountNextElt > 0)
                 {
                     // If there is at least one village next to the current tile make it into a sheep meadow
@@ -286,8 +286,8 @@ public class MapGenerator : MonoBehaviour
 
                 break;
             case Role.EvilMountain:
-                var villagesInRange = Tiles.Count(x => x.Flipped && x.role == Role.Village && (x.gameObject.transform.position - flipped.transform.position).magnitude < 2);
-                var citiesInRange = Tiles.Count(x => x.Flipped && x.role == Role.City && (x.gameObject.transform.position - flipped.transform.position).magnitude < 4);
+                var villagesInRange = Tiles.Count(x => x.Flipped && x.role == Role.Village && (x.gameObject.transform.position - unflipped.transform.position).magnitude < 2);
+                var citiesInRange = Tiles.Count(x => x.Flipped && x.role == Role.City && (x.gameObject.transform.position - unflipped.transform.position).magnitude < 4);
 
                 if (villagesInRange + citiesInRange > 0)
                 {
@@ -298,7 +298,7 @@ public class MapGenerator : MonoBehaviour
                 }
                 else
                 {
-                    var neighboringForest = Tiles.Count(x => (x.role == Role.DeadForrest || x.role == Role.LivingForrest) && (x.gameObject.transform.position - flipped.gameObject.transform.position).magnitude < 2);
+                    var neighboringForest = Tiles.Count(x => (x.role == Role.DeadForrest || x.role == Role.LivingForrest) && (x.gameObject.transform.position - unflipped.gameObject.transform.position).magnitude < 2);
                     // otherwise change it to a mountain
                     unflipped.ActivateByTag("Mountain");
                     GivePoints(tileSettings.pEvilMountainToBeautifulMountain * neighboringForest, PointType.Natural);
@@ -307,7 +307,7 @@ public class MapGenerator : MonoBehaviour
 
                 break;
             case Role.ScorchedEarth:
-                var villagesAndCitiesInRange = Tiles.Count(x => x.Flipped && (x.role == Role.Village || x.role == Role.City) && (x.gameObject.transform.position - flipped.transform.position).magnitude < 2);
+                var villagesAndCitiesInRange = Tiles.Count(x => x.Flipped && (x.role == Role.Village || x.role == Role.City) && (x.gameObject.transform.position - unflipped.transform.position).magnitude < 2);
 
                 if (villagesAndCitiesInRange > 0)
                 {
