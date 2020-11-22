@@ -145,9 +145,9 @@ public class Tile : MonoBehaviour
     {
         activeTag = activeTag.ToLower();
         var children = transform.GetComponentsInChildren<Transform>();
-        for (var i = 0; i < transform.childCount; i++)
+        foreach (var t in children)
         {
-            children[i].gameObject.SetActive(children[i].gameObject.tag.ToLower().Contains(activeTag));
+            t.gameObject.SetActive(t.gameObject.tag.ToLower().Contains(activeTag) || t.gameObject.CompareTag("Untagged"));
         }
 
         gameObject.SetActive(true);

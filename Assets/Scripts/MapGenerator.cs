@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
 {
-    [SerializeField] private int seed = 10;
+    [SerializeField] private int seed;
     [SerializeField] private GameObject borderTile;
     [SerializeField] private List<TileConfig> tiles = new List<TileConfig>();
     [SerializeField] private TileSettings tileSettings;
@@ -22,6 +22,7 @@ public class MapGenerator : MonoBehaviour
 
     void Start()
     {
+        seed = gameSettings.seed;
         _size = gameSettings.mapRadius * 2 + 3;
         _lineRenderer = GetComponent<LineRenderer>();
         Random.InitState(seed);
@@ -48,7 +49,7 @@ public class MapGenerator : MonoBehaviour
             }
             else
             {
-                (go, role) = GetRandomTile();
+                (go, role) = GetRandomTile(i == 0 && offset == 0);
             }
 
             go.transform.position = CoordsToWorldPosition(i, offset);
@@ -71,7 +72,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    (GameObject, Role) GetRandomTile()
+    (GameObject, Role) GetRandomTile(bool forceVillage = false)
     {
         var possibilities = tiles.Aggregate(0, (prev, curr) => prev + curr.probability);
         var i = Random.Range(0, possibilities);
@@ -88,10 +89,10 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        if (tile == null)
+        if (tile == null || forceVillage)
         {
-            tile = tiles[0].Prefabs[Random.Range(0, tiles[0].Prefabs.Count)];
-            role = tiles[0].Role;
+            tile = tiles.Find(x => x.Role == Role.RuinedVillage).Prefabs[Random.Range(0, tiles[0].Prefabs.Count)];
+            role = Role.Village;
         }
 
         return (tile, role);
@@ -168,7 +169,14 @@ public class MapGenerator : MonoBehaviour
     {
         var unflipped = CurrentlyDraggedTile.Flipped ? CurrentlyHoveredTile : CurrentlyDraggedTile;
         var flipped = !CurrentlyDraggedTile.Flipped ? CurrentlyHoveredTile : CurrentlyDraggedTile;
-        var civilizedTilesInRadius3 = Tiles.Count(x => x.Flipped && IsCivilized(x) && (x.gameObject.transform.position - flipped.transform.position).magnitude < 4);
+        var civilizedTilesInRadius3 = Tiles.Count(x => x.Flipped && (
+                                                                     x.role == Role.City ||
+                                                                     x.role == Role.Mine ||
+                                                                     x.role == Role.Village ||
+                                                                     x.role == Role.SheepMeadows ||
+                                                                     x.role == Role.Farmland ||
+                                                                     x.role == Role.Mine)
+                                                                 && (x.gameObject.transform.position - flipped.transform.position).magnitude < 4);
         // var natureTilesInRadius3 = Tiles.Count(x => x.Flipped && !IsCivilized(x) && (x.gameObject.transform.position - flipped.transform.position).magnitude < 4);
 
         switch (unflipped.role)
