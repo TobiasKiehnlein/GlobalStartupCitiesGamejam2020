@@ -140,12 +140,29 @@ public class Tile : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
     }
+
+    public void ActivateByTag(string tag)
+    {
+        foreach (var componentsInChild in gameObject.GetComponentsInChildren<Transform>())
+        {
+            if (componentsInChild.gameObject.tag.Contains(tag) || componentsInChild.gameObject.tag.Contains("Dark"))
+            {
+                componentsInChild.gameObject.SetActive(true);
+            }
+            else
+            {
+                componentsInChild.gameObject.SetActive(false);
+            }
+        }
+    }
 }
 
 public enum Role
 {
     None,
-    RuinedVillages,
+    Village,
+    Savanna,
     Mountain,
+    ScorchedEarth,
     Border
 }
