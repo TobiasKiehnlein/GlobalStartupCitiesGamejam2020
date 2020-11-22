@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   darkeningOnHoverAmount: 1.5
   pDeadForrestToLivingForest: 1
-  pRuinedVillageToVillage: 1
+  pRuinedVillageToVillage: 2
   pRuinedVillageToGrasslands: 1
-  pCrackedSavannaToSheepMeadows: 1
+  pCrackedSavannaToSheepMeadows: 2
   pCrackedSavannaToGrassland: 1
   pEvilMountainToMine: 1
-  pEvilMountainToBeautifulMountain: 1
-  pScorchedEarthToFarmlands: 1
-  pScorchedEarthToFlowers: 1
+  pEvilMountainToBeautifulMountain: 3
+  pScorchedEarthToFarmlands: 5
+  pScorchedEarthToFlowers: 3
