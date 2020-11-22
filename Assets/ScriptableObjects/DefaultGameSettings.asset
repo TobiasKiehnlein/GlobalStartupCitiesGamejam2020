@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: DefaultGameSettings
   m_EditorClassIdentifier: 
   mouseMovementEnabled: 0
+  mapRadius: 5
+  seed: 10

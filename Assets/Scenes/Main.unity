@@ -503,6 +503,7 @@ MonoBehaviour:
     probability: 10
   tileSettings: {fileID: 11400000, guid: fa94268cbcee04aa89c6de02436b598d, type: 2}
   gameSettings: {fileID: 11400000, guid: f63d1fc49aaf34a32a830cd702bb53d8, type: 2}
+  score: {fileID: 11400000, guid: a741ac17b596a4da3831d5ed9baabb16, type: 2}
   Tiles: []
 --- !u!4 &1295960774
 Transform:
