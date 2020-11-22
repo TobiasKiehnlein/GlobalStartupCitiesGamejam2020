@@ -245,7 +245,7 @@ public class MapGenerator : MonoBehaviour
         switch (unflipped.role)
         {
             case Role.DeadForrest:
-                var amount = Tiles.Count(x => x.Flipped && x.role == Role.LivingForrest);
+                var amount = Tiles.Count(x => x.Flipped && x.role == Role.LivingForrest && (x.transform.position - flipped.gameObject.transform.position).magnitude < 2);
                 GivePoints(tileSettings.pDeadForrestToLivingForest * amount, PointType.Natural);
                 unflipped.role = Role.LivingForrest;
                 break;
