@@ -13,6 +13,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private TileSettings tileSettings;
     [SerializeField] private GameSettings gameSettings;
     [SerializeField] private Score score;
+    [SerializeField] private GameObject pointPopup;
 
     public Tile CurrentlyDraggedTile { get; set; }
     public Tile CurrentlyHoveredTile { get; set; }
@@ -309,6 +310,12 @@ public class MapGenerator : MonoBehaviour
 
     void GivePoints(int amount, PointType type)
     {
+        var point = pointPopup.GetComponent<Point>();
+        point.isNature = type == PointType.Natural;
+        point.amount = amount;
+        point.transform.position = CurrentlyHoveredTile.transform.position;
+        Instantiate(point);
+
         if (type == PointType.Civilized)
         {
             score.civilizedPoints += amount;

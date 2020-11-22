@@ -470,7 +470,7 @@ GameObject:
   - component: {fileID: 540274332}
   - component: {fileID: 540274331}
   m_Layer: 5
-  m_Name: Text (TMP) (01)
+  m_Name: CivilizedScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 1147423685}
   - component: {fileID: 1147423684}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ScoreBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -896,6 +896,7 @@ MonoBehaviour:
   tileSettings: {fileID: 11400000, guid: fa94268cbcee04aa89c6de02436b598d, type: 2}
   gameSettings: {fileID: 11400000, guid: f63d1fc49aaf34a32a830cd702bb53d8, type: 2}
   score: {fileID: 11400000, guid: a741ac17b596a4da3831d5ed9baabb16, type: 2}
+  pointPopup: {fileID: 2058480471589804558, guid: 85ffb112c51ce49c789a1031c6b54385, type: 3}
   Tiles: []
 --- !u!4 &1295960774
 Transform:
@@ -1438,7 +1439,7 @@ GameObject:
   - component: {fileID: 2061286369}
   - component: {fileID: 2061286371}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: NatureScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
