@@ -286,7 +286,7 @@ public class MapGenerator : MonoBehaviour
 
                 break;
             case Role.EvilMountain:
-                var villagesInRange = Tiles.Count(x => x.Flipped && x.role == Role.Village && (x.gameObject.transform.position - unflipped.transform.position).magnitude < 2);
+                var villagesInRange = Tiles.Count(x => x.Flipped && x.role == Role.Village && (x.gameObject.transform.position - unflipped.transform.position).magnitude < 4);
                 var citiesInRange = Tiles.Count(x => x.Flipped && x.role == Role.City && (x.gameObject.transform.position - unflipped.transform.position).magnitude < 4);
 
                 if (villagesInRange + citiesInRange > 0)
