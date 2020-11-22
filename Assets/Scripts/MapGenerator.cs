@@ -97,10 +97,10 @@ public class MapGenerator : MonoBehaviour
         return (tile, role);
     }
 
-    private Vector2 CoordsToWorldPosition(int x, int y)
+    private Vector3 CoordsToWorldPosition(int x, int y)
     {
         var horizontalOffset = Math.Abs(y) % 2 == 1 ? 1.5f : 0;
-        return new Vector3(x + horizontalOffset - Math.Abs(y) % 2, y * 0.89f, 0);
+        return new Vector3(x + horizontalOffset - Math.Abs(y) % 2, y * 0.89f, .1f * y);
     }
 
     public int GetSize()
