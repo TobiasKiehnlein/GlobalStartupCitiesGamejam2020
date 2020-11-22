@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private float timeToReach;
+    [SerializeField] private GameSettings _gameSettings;
     private AudioMixerSnapshot _editor;
 
     private static AudioManager _instance;
@@ -38,5 +39,13 @@ public class AudioManager : MonoBehaviour
         var main = mixer.FindSnapshot("Main");
         var nature = mixer.FindSnapshot("Nature");
         var bad = mixer.FindSnapshot("Bad");
+    }
+
+    private void Update()
+    {
+        foreach (var audioSource in _audioSources)
+        {
+            audioSource.mute = _gameSettings.muted;
+        }
     }
 }
