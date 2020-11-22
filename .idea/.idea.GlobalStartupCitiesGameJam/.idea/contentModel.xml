@@ -10,6 +10,7 @@
           <e p="FogMovement.cs" t="Include" />
           <e p="GameSettings.cs" t="Include" />
           <e p="MapGenerator.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="Tile.cs" t="Include" />
           <e p="TileSettings.cs" t="Include" />

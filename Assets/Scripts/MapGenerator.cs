@@ -12,6 +12,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private List<TileConfig> tiles = new List<TileConfig>();
     [SerializeField] private TileSettings tileSettings;
     [SerializeField] private GameSettings gameSettings;
+    [SerializeField] private Score score;
 
     public Tile CurrentlyDraggedTile { get; set; }
     public Tile CurrentlyHoveredTile { get; set; }
@@ -22,6 +23,8 @@ public class MapGenerator : MonoBehaviour
 
     void Start()
     {
+        score.civilizedPoints = 0;
+        score.naturePoints = 0;
         seed = gameSettings.seed;
         _size = gameSettings.mapRadius * 2 + 3;
         _lineRenderer = GetComponent<LineRenderer>();
@@ -157,12 +160,41 @@ public class MapGenerator : MonoBehaviour
             CurrentlyDraggedTile.Flipped = true;
             MakeVisibleAroundTile(CurrentlyDraggedTile);
             MakeVisibleAroundTile(CurrentlyHoveredTile);
+
+            CreateCities();
         }
         else
         {
             // TODO Display Error message to user
             Debug.LogWarning("These Two cannot be swapped");
         }
+    }
+
+    private void CreateCities()
+    {
+        foreach (var tile in Tiles)
+        {
+            if (tile.role != Role.Village) continue;
+            var possibleOtherVillageTiles = Tiles.Where(x => x.role == Role.Village && (x.transform.position - tile.transform.position).magnitude < 2).ToList();
+            if (possibleOtherVillageTiles.Count < 3) continue;
+
+            // there are at least two villages next to the current one
+
+            var possibleCities = GetPowerSet(possibleOtherVillageTiles).Where(x => x.Count() == 3);
+
+            // Check if shape is like this:
+            //  x   or x x
+            // x x      x
+        }
+    }
+
+    public IEnumerable<IEnumerable<T>> GetPowerSet<T>(List<T> list)
+    {
+        return from m in Enumerable.Range(0, 1 << list.Count)
+            select
+                from i in Enumerable.Range(0, list.Count)
+                where (m & (1 << i)) != 0
+                select list[i];
     }
 
     void CalculatePointsAndMorphTile()
@@ -182,7 +214,9 @@ public class MapGenerator : MonoBehaviour
         switch (unflipped.role)
         {
             case Role.DeadForrest:
-                GivePoints(tileSettings.pDeadForrestToLivingForest, PointType.Natural);
+                // TODO Finde alle zusammenhängenden Wälder
+                var coherentForestCount = 5;
+                GivePoints(tileSettings.pDeadForrestToLivingForest * coherentForestCount, PointType.Natural);
                 unflipped.role = Role.LivingForrest;
                 break;
             case Role.RuinedVillage:
@@ -190,7 +224,8 @@ public class MapGenerator : MonoBehaviour
                 {
                     // Ruined Village gets village if there is at least one civilized Tile up to three tiles away
                     unflipped.ActivateByTag("Village");
-                    GivePoints(tileSettings.pRuinedVillageToVillage, PointType.Civilized);
+                    var flippedAround = Tiles.Count(x => x.Flipped && (x.transform.position - flipped.gameObject.transform.position).magnitude < 2);
+                    GivePoints(tileSettings.pRuinedVillageToVillage * flippedAround, PointType.Civilized);
                     unflipped.role = Role.Village;
                 }
                 else
@@ -228,14 +263,15 @@ public class MapGenerator : MonoBehaviour
                 {
                     // If there is a village next to it or a city in range 3 turn it into a mine
                     unflipped.ActivateByTag("Mine");
-                    GivePoints(tileSettings.pEvilMountainToMine, PointType.Civilized);
+                    GivePoints(tileSettings.pEvilMountainToMine * villagesInRange + tileSettings.pEvilMountainToMine * 3 * citiesInRange, PointType.Civilized);
                     unflipped.role = Role.Mine;
                 }
                 else
                 {
+                    var neighboringForest = Tiles.Count(x => (x.role == Role.DeadForrest || x.role == Role.LivingForrest) && (x.gameObject.transform.position - flipped.gameObject.transform.position).magnitude < 2);
                     // otherwise change it to a mountain
                     unflipped.ActivateByTag("Mountain");
-                    GivePoints(tileSettings.pEvilMountainToBeautifulMountain, PointType.Natural);
+                    GivePoints(tileSettings.pEvilMountainToBeautifulMountain * neighboringForest, PointType.Natural);
                     unflipped.role = Role.BeautifulMountain;
                 }
 
@@ -273,6 +309,14 @@ public class MapGenerator : MonoBehaviour
 
     void GivePoints(int amount, PointType type)
     {
+        if (type == PointType.Civilized)
+        {
+            score.civilizedPoints += amount;
+        }
+        else
+        {
+            score.naturePoints += amount;
+        }
     }
 
     private void MakeVisibleAroundTile(Tile tile, float amount = 2.2f)
