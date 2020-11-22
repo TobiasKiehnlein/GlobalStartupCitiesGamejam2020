@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c3a7573-a9e5-47ff-8c82-2a0ecc4c5d84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Score.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Score.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DisplayScore.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DisplayScore.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI and FX/Score_Anzeige.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/UI and FX/Score_Anzeige.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +37,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DisplayScore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/213E6BF8-F2DD-495F-BD69-3E6CE506136B/7b/1461def5/SendMouseEvents.cs" root0="SKIP_HIGHLIGHTING" />
@@ -55,6 +56,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Tile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Score.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/DisplayScore.cs" />
       </list>
     </option>
   </component>
@@ -104,7 +106,7 @@
       <workItem from="1605726551098" duration="659000" />
       <workItem from="1605893679656" duration="14461000" />
       <workItem from="1605942628029" duration="19127000" />
-      <workItem from="1606011255087" duration="14773000" />
+      <workItem from="1606011255087" duration="15618000" />
     </task>
     <servers />
   </component>
