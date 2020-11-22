@@ -6,8 +6,6 @@ TagManager:
   tags:
   - BeautifulMountain
   - Mountain_Dark
-  - Mountain_Civil
-  - Mountain_Nature
   - Forest_dark
   - Forest_light
   - Ruins
@@ -18,6 +16,8 @@ TagManager:
   - earth_dark
   - farmland
   - flowers
+  - Mine
+  - Mountain_Nature
   layers:
   - Default
   - TransparentFX

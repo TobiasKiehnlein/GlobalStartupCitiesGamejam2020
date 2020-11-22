@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 838760809330368079}
   m_Layer: 0
   m_Name: LightMine
-  m_TagString: Mountain_Civil
+  m_TagString: Mine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 1160151109929661872}
   m_Layer: 0
   m_Name: LightBeautifulMountain
-  m_TagString: Mountain_Nature
+  m_TagString: BeautifulMountain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -141,28 +141,35 @@ public class Tile : MonoBehaviour
         }
     }
 
-    public void ActivateByTag(string tag)
+    public void ActivateByTag(string activeTag)
     {
-        foreach (var componentsInChild in gameObject.GetComponentsInChildren<Transform>())
+        activeTag = activeTag.ToLower();
+        var children = transform.GetComponentsInChildren<Transform>();
+        for (var i = 0; i < transform.childCount; i++)
         {
-            if (componentsInChild.gameObject.tag.Contains(tag) || componentsInChild.gameObject.tag.Contains("Dark"))
-            {
-                componentsInChild.gameObject.SetActive(true);
-            }
-            else
-            {
-                componentsInChild.gameObject.SetActive(false);
-            }
+            children[i].gameObject.SetActive(children[i].gameObject.tag.ToLower().Contains(activeTag));
         }
+
+        gameObject.SetActive(true);
     }
 }
 
 public enum Role
 {
     None,
-    Village,
-    Savanna,
-    Mountain,
+    RuinedVillage,
+    CrackedSavanna,
+    EvilMountain,
     ScorchedEarth,
+    DeadForrest,
+    Village,
+    City,
+    SheepMeadows,
+    Mine,
+    Farmland,
+    LivingForrest,
+    Flower,
+    Grasslands,
+    BeautifulMountain,
     Border
 }

@@ -483,7 +483,23 @@ MonoBehaviour:
   tiles:
   - Prefabs:
     - {fileID: 494866208563506508, guid: d31c8a75a984a1b40aca0f9fb628be83, type: 3}
+    Role: 3
+    probability: 10
+  - Prefabs:
+    - {fileID: 494866208563506508, guid: b18fe2033a752b94886279c1a4eac479, type: 3}
+    Role: 4
+    probability: 10
+  - Prefabs:
+    - {fileID: 494866208563506508, guid: c3993a17aec0bc1448b9f296e828a73f, type: 3}
     Role: 2
+    probability: 10
+  - Prefabs:
+    - {fileID: 494866208563506508, guid: 2a7cdf4c2b3ae264dab5dcaff30446dd, type: 3}
+    Role: 1
+    probability: 10
+  - Prefabs:
+    - {fileID: 494866208563506508, guid: 2b3e75567d45fdd4a83c202861465888, type: 3}
+    Role: 5
     probability: 10
   tileSettings: {fileID: 11400000, guid: fa94268cbcee04aa89c6de02436b598d, type: 2}
   gameSettings: {fileID: 11400000, guid: f63d1fc49aaf34a32a830cd702bb53d8, type: 2}
@@ -934,7 +950,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

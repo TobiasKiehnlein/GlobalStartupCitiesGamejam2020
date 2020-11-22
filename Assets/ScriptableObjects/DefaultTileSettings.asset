@@ -13,3 +13,12 @@ MonoBehaviour:
   m_Name: DefaultTileSettings
   m_EditorClassIdentifier: 
   darkeningOnHoverAmount: 1.5
+  pDeadForrestToLivingForest: 1
+  pRuinedVillageToVillage: 1
+  pRuinedVillageToGrasslands: 1
+  pCrackedSavannaToSheepMeadows: 1
+  pCrackedSavannaToGrassland: 1
+  pEvilMountainToMine: 1
+  pEvilMountainToBeautifulMountain: 1
+  pScorchedEarthToFarmlands: 1
+  pScorchedEarthToFlowers: 1

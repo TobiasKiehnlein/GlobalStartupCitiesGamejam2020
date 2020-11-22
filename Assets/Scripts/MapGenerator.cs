@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
 using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
@@ -38,7 +39,18 @@ public class MapGenerator : MonoBehaviour
         for (int i = lower; i < upper; i++)
         {
             var isBorder = onlyBorders || i == lower || i == (int) (upper - 1);
-            var go = isBorder ? borderTile : GetRandomTile();
+            GameObject go = null;
+            Role role = Role.None;
+            if (isBorder)
+            {
+                go = borderTile;
+                role = Role.Border;
+            }
+            else
+            {
+                (go, role) = GetRandomTile();
+            }
+
             go.transform.position = CoordsToWorldPosition(i, offset);
             var instance = Instantiate(go, transform);
 
@@ -51,25 +63,38 @@ public class MapGenerator : MonoBehaviour
             tile.tileSettings = tileSettings;
             tile.lineRenderer = _lineRenderer;
             tile.mapGenerator = this;
+            tile.role = role;
             if (isBorder)
             {
-                tile.role = Role.Border;
                 tile.Flipped = true;
             }
         }
     }
 
-    GameObject GetRandomTile()
+    (GameObject, Role) GetRandomTile()
     {
         var possibilities = tiles.Aggregate(0, (prev, curr) => prev + curr.probability);
         var i = Random.Range(0, possibilities);
+        GameObject tile = null;
+        Role role = Role.None;
         foreach (var t in tiles)
         {
             i -= t.probability;
-            if (i < 0) return t.Prefabs[Random.Range(0, t.Prefabs.Count)];
+            if (i < 0)
+            {
+                tile = t.Prefabs[Random.Range(0, t.Prefabs.Count)];
+                role = t.Role;
+                break;
+            }
         }
 
-        return tiles[0].Prefabs[Random.Range(0, tiles[0].Prefabs.Count)];
+        if (tile == null)
+        {
+            tile = tiles[0].Prefabs[Random.Range(0, tiles[0].Prefabs.Count)];
+            role = tiles[0].Role;
+        }
+
+        return (tile, role);
     }
 
     private Vector2 CoordsToWorldPosition(int x, int y)
@@ -116,7 +141,8 @@ public class MapGenerator : MonoBehaviour
     {
         if (IsSwapAllowed(CurrentlyHoveredTile))
         {
-            // TODO Do stuff
+            CalculatePointsAndMorphTile();
+
             var x = CurrentlyHoveredTile.X;
             var y = CurrentlyHoveredTile.Y;
             CurrentlyHoveredTile.X = CurrentlyDraggedTile.X;
@@ -124,7 +150,6 @@ public class MapGenerator : MonoBehaviour
             CurrentlyDraggedTile.X = x;
             CurrentlyDraggedTile.Y = y;
 
-            //TODO Change to Method inside Tile and Lerp
             CurrentlyHoveredTile.DestinationPosition = CoordsToWorldPosition(CurrentlyHoveredTile.X, CurrentlyHoveredTile.Y);
             CurrentlyDraggedTile.DestinationPosition = CoordsToWorldPosition(CurrentlyDraggedTile.X, CurrentlyDraggedTile.Y);
             CurrentlyHoveredTile.Flipped = true;
@@ -137,6 +162,109 @@ public class MapGenerator : MonoBehaviour
             // TODO Display Error message to user
             Debug.LogWarning("These Two cannot be swapped");
         }
+    }
+
+    void CalculatePointsAndMorphTile()
+    {
+        var unflipped = CurrentlyDraggedTile.Flipped ? CurrentlyHoveredTile : CurrentlyDraggedTile;
+        var flipped = !CurrentlyDraggedTile.Flipped ? CurrentlyHoveredTile : CurrentlyDraggedTile;
+        var civilizedTilesInRadius3 = Tiles.Count(x => x.Flipped && IsCivilized(x) && (x.gameObject.transform.position - flipped.transform.position).magnitude < 4);
+        // var natureTilesInRadius3 = Tiles.Count(x => x.Flipped && !IsCivilized(x) && (x.gameObject.transform.position - flipped.transform.position).magnitude < 4);
+
+        switch (unflipped.role)
+        {
+            case Role.DeadForrest:
+                GivePoints(tileSettings.pDeadForrestToLivingForest, PointType.Natural);
+                unflipped.role = Role.LivingForrest;
+                break;
+            case Role.RuinedVillage:
+                if (civilizedTilesInRadius3 > 0)
+                {
+                    // Ruined Village gets village if there is at least one civilized Tile up to three tiles away
+                    unflipped.ActivateByTag("Village");
+                    GivePoints(tileSettings.pRuinedVillageToVillage, PointType.Civilized);
+                    unflipped.role = Role.Village;
+                }
+                else
+                {
+                    // Otherwise it will be grassland
+                    unflipped.ActivateByTag("Grassland");
+                    GivePoints(tileSettings.pRuinedVillageToGrasslands, PointType.Natural);
+                    unflipped.role = Role.Grasslands;
+                }
+
+                break;
+            case Role.CrackedSavanna:
+                var villageAmountNextElt = Tiles.Count(x => x.Flipped && x.role == Role.Village && (x.gameObject.transform.position - flipped.transform.position).magnitude < 2);
+                if (villageAmountNextElt > 0)
+                {
+                    // If there is at least one village next to the current tile make it into a sheep meadow
+                    unflipped.ActivateByTag("Meadow");
+                    GivePoints(tileSettings.pCrackedSavannaToSheepMeadows, PointType.Civilized);
+                    unflipped.role = Role.SheepMeadows;
+                }
+                else
+                {
+                    // Otherwise turn it into Grassland
+                    unflipped.ActivateByTag("Grassland");
+                    GivePoints(tileSettings.pCrackedSavannaToGrassland, PointType.Natural);
+                    unflipped.role = Role.Grasslands;
+                }
+
+                break;
+            case Role.EvilMountain:
+                var villagesInRange = Tiles.Count(x => x.Flipped && x.role == Role.Village && (x.gameObject.transform.position - flipped.transform.position).magnitude < 2);
+                var citiesInRange = Tiles.Count(x => x.Flipped && x.role == Role.City && (x.gameObject.transform.position - flipped.transform.position).magnitude < 4);
+
+                if (villagesInRange + citiesInRange > 0)
+                {
+                    // If there is a village next to it or a city in range 3 turn it into a mine
+                    unflipped.ActivateByTag("Mine");
+                    GivePoints(tileSettings.pEvilMountainToMine, PointType.Civilized);
+                    unflipped.role = Role.Mine;
+                }
+                else
+                {
+                    // otherwise change it to a mountain
+                    unflipped.ActivateByTag("Mountain");
+                    GivePoints(tileSettings.pEvilMountainToBeautifulMountain, PointType.Natural);
+                    unflipped.role = Role.BeautifulMountain;
+                }
+
+                break;
+            case Role.ScorchedEarth:
+                var villagesAndCitiesInRange = Tiles.Count(x => x.Flipped && (x.role == Role.Village || x.role == Role.City) && (x.gameObject.transform.position - flipped.transform.position).magnitude < 2);
+
+                if (villagesAndCitiesInRange > 0)
+                {
+                    unflipped.ActivateByTag("Farmland");
+                    GivePoints(tileSettings.pScorchedEarthToFarmlands, PointType.Civilized);
+                    unflipped.role = Role.Farmland;
+                }
+                else
+                {
+                    unflipped.ActivateByTag("Flower");
+                    GivePoints(tileSettings.pScorchedEarthToFlowers, PointType.Natural);
+                    unflipped.role = Role.Flower;
+                }
+
+                break;
+        }
+    }
+
+    bool IsCivilized(Tile tile)
+    {
+        return
+            tile.role == Role.City ||
+            tile.role == Role.Mine ||
+            tile.role == Role.Village ||
+            tile.role == Role.SheepMeadows ||
+            tile.role == Role.Farmland ||
+            tile.role == Role.Mine;
+    }
+
+    void GivePoints(int amount, PointType type)
+    {
     }
 
     private void MakeVisibleAroundTile(Tile tile, float amount = 2.2f)
@@ -160,4 +288,10 @@ public class TileConfig
     public List<GameObject> Prefabs;
     public Role Role;
     public int probability;
+}
+
+enum PointType
+{
+    Natural,
+    Civilized
 }

@@ -20,11 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c3a7573-a9e5-47ff-8c82-2a0ecc4c5d84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/GameMusic.mixer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/GameMusic.mixer.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalStartupCitiesGameJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Anim/RotateTile.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Anim/RotateTile.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMusic.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMusic.mixer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMusic.mixer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMusic.mixer.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Ruin_Village_test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Ruin_Village_test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Savannah_Sheepmeadow_test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Savannah_Sheepmeadow_test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Scrachedearth_farmland_test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/Scrachedearth_farmland_test.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/TheMountain_test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Unanimierte Platzhalter/TheMountain_test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +44,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/213E6BF8-F2DD-495F-BD69-3E6CE506136B/7b/1461def5/SendMouseEvents.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FogMovement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -49,9 +54,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FogMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TileSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tile.cs" />
       </list>
     </option>
@@ -80,10 +85,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="852">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="852" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -102,6 +107,7 @@
       <workItem from="1605726551098" duration="659000" />
       <workItem from="1605893679656" duration="14461000" />
       <workItem from="1605942628029" duration="19127000" />
+      <workItem from="1606011255087" duration="5611000" />
     </task>
     <servers />
   </component>
