@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a2d12db6e0245349a6382b532bc5c75
+guid: b9373d47c3ec05d45917fa49fcddc561
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -89,7 +89,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Tower1
+  - name: sheep
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -98,9 +98,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 504
-      height: 1288
-    spriteID: 3a6bb24d7d737dd46a7e468c043bc0f9
+      width: 139
+      height: 96
+    spriteID: 27c1e77ac36f53841b33edd655a13a6a
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -110,40 +110,127 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: -204, y: -606}
+  - name: sheep_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 108
+      width: 139
+      height: 96
+    spriteID: 164b0cd308a850c4f948f0175a832968
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -463, y: -206}
+  - name: sheep_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 212
+      width: 139
+      height: 96
+    spriteID: 4b00f5dac1f69464b9fd18e70e364417
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -185, y: -177}
+  - name: sheep_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 316
+      width: 139
+      height: 96
+    spriteID: 7435e93b46faee04aa0b6447f0314cba
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -475, y: -232}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 512
-  importedTextureHeight: 2048
-  documentSize: {x: 504, y: 1288}
+  importedTextureWidth: 256
+  importedTextureHeight: 512
+  documentSize: {x: 901, y: 1071}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
-  textureActualWidth: 512
-  textureActualHeight: 2048
+  textureActualWidth: 256
+  textureActualHeight: 512
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Tower1
-    spriteName: Tower1
+  - name: sheep
+    spriteName: sheep
     isGroup: 0
     parentIndex: -1
-    spriteID: 3a6bb24d7d737dd46a7e468c043bc0f9
-    layerID: 2
+    spriteID: 27c1e77ac36f53841b33edd655a13a6a
+    layerID: 7
     mosaicPosition: {x: 4, y: 4}
+  - name: sheep
+    spriteName: sheep_1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 164b0cd308a850c4f948f0175a832968
+    layerID: 5
+    mosaicPosition: {x: 4, y: 108}
+  - name: sheep
+    spriteName: sheep_2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4b00f5dac1f69464b9fd18e70e364417
+    layerID: 6
+    mosaicPosition: {x: 4, y: 212}
+  - name: sheep
+    spriteName: sheep_3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7435e93b46faee04aa0b6447f0314cba
+    layerID: 4
+    mosaicPosition: {x: 4, y: 316}
   characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
-  textureAssetName: _ower Texture
-  prefabAssetName: _ower Prefab
-  spriteLibAssetName: _ower Sprite Lib
+  textureAssetName: sheeeps Texture
+  prefabAssetName: sheeeps Prefab
+  spriteLibAssetName: sheeeps Sprite Lib
   secondarySpriteTextures: []
